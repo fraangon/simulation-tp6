@@ -1,6 +1,6 @@
 const config = {
     // Number of attention posts
-    attentionPosts: 3
+    attentionPosts: 1
 };
 
 export default config;
