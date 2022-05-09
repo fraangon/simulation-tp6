@@ -52,15 +52,13 @@ const exit = (i) => {
         tps[i] = HIGH_VALUE;
     }
 };
-let contador = 0;
-let contador_exit = 0;
+
 while (t < tf) {
     let i = getMinIndex(tps);
     if (tpll <= tps[i]) {
         arrival();
     } else {
         exit(i);
-        contador_exit++;
     }
     console.log('------------------------------------------------------------------------\n');
     console.log('SPS: '+ sps + '\tSTA: '+ sta + '\tNS: '+ ns + '\tNT: '+ nt);

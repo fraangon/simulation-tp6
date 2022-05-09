@@ -21,20 +21,15 @@ export const getIAE = () => {
 const equiprobableFDP = (minValue, maxValue) =>
   minValue + (maxValue - minValue) * Math.random();
 
-const getTAR = () => equiprobableFDP(6, 7);
-const getTAIP = () => equiprobableFDP(8, 9);
-const getTAIH = () => equiprobableFDP(7, 8);
+const getTAIP = () => equiprobableFDP(8, 16);
+const getTAIH = () => equiprobableFDP(5, 10);
 
 export const getTA = () => {
   const r = Math.random();
 
-  if (r <= 0.05) {
+  if (r <= 0.65) {
     return getTAIH();
   } else {
-    if (r <= 0.2) {
       return getTAIP();
-    } else {
-      return getTAR();
     }
-  }
 };
