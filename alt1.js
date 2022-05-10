@@ -2,6 +2,8 @@ import { HIGH_VALUE } from './constants.js';
 import { getIAE, getMaxIndex, getMinIndex, getTA } from './utils.js';
 import config from './config.js';
 
+const printStats = 0;
+
 // Control
 let n = config.attentionPosts;
 
@@ -60,19 +62,19 @@ while (t < tf) {
     } else {
         exit(i);
     }
-    console.log('------------------------------------------------------------------------\n');
-    console.log('SPS: '+ sps + '\tSTA: '+ sta + '\tNS: '+ ns + '\tNT: '+ nt);
+    if(printStats)console.log('------------------------------------------------------------------------\n');
+    if(printStats)console.log('SPS: '+ sps + '\tSTA: '+ sta + '\tNS: '+ ns + '\tNT: '+ nt);
 
 }
 
 if(ns != 0) {
-    console.log('\n\nVACIAMIENTO');
+    if(printStats)console.log('\n\nVACIAMIENTO');
     tpll = HIGH_VALUE;
     while(ns > 0) {
         let i = getMinIndex(tps);
         exit(i); 
-        console.log('------------------------------------------------------------------------\n');
-        console.log('SPS: '+ sps + '\tSTA: '+ sta + '\tNS: '+ ns + '\tNT: '+ nt);  
+        if(printStats)console.log('------------------------------------------------------------------------\n');
+        if(printStats)console.log('SPS: '+ sps + '\tSTA: '+ sta + '\tNS: '+ ns + '\tNT: '+ nt);  
     }
 }
 
