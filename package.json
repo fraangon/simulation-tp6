@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
+  "main": "alt1.js",
+"scripts": {
+    "start": "node alt1.js",
+    "alt2": "node alt2.js"
   },
   "author": "",
   "license": "ISC",

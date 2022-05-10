@@ -6,16 +6,22 @@ export const getMinIndex = (arr) => {
 };
 
 export const getMaxIndex = (arr) => {
-    const max = Math.max(...arr);
-    const index = arr.indexOf(max);
+  const max = Math.max(...arr);
+  const index = arr.indexOf(max);
 
-    return index;
-    };
+  return index;
+};
 
 export const getIAE = () => {
   const r = Math.random();
   const iae = Math.log(-r + 1) / -0.0013;
-  return iae/60;
+  return iae / 60; //esto traduce el resultado en segundos a minutos
+};
+
+export const getIAS = () => {
+  const r = Math.random();
+  const ias = Math.log(-r + 1) / -0.0004;
+  return ias / 60; //esto traduce el resultado en segundos a minutos
 };
 
 const equiprobableFDP = (minValue, maxValue) =>
@@ -30,6 +36,10 @@ export const getTA = () => {
   if (r <= 0.65) {
     return getTAIH();
   } else {
-      return getTAIP();
-    }
+    return getTAIP();
+  }
 };
+
+export const getTAS = () => equiprobableFDP(1, 3);
+
+
