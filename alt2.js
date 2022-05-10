@@ -17,7 +17,7 @@ let finSimulacion = 0;
 
 
 // CI
-let tf = 500;
+let tf = 131400;
 let tplli = 1;
 let tplls = 0;
 let tpsi = HIGH_VALUE;
@@ -57,7 +57,7 @@ const llegadaI = () => {
 
     const ta = getTA();
     tpss = t + ta;
-    console.log("habra salida S, generada por nsi == 2 && nss == 0 en LLEGADA I");
+    //console.log("habra salida S, generada por nsi == 2 && nss == 0 en LLEGADA I");
     stos = stos + (t - itos);
     sta = sta + ta;
   }
@@ -94,7 +94,7 @@ const llegadaS = () => {
   if (nss == 1) {
     const tas = getTAS();
     tpss = t + tas;
-    console.log("habra salida S, generada por nss == 1 en LLEGADA S");
+    //console.log("habra salida S, generada por nss == 1 en LLEGADA S");
     stos = stos + (t - itos);
     sta = sta + tas;
   }
@@ -110,13 +110,19 @@ const salidaS = () => {
   if (nss > 0) {
     const tas = getTAS();
     tpss = t + tas;
-    console.log("habra salida S, generada por nss > 0 en SALIDA S");
+    //console.log("habra salida S, generada por nss > 0 en SALIDA S");
     sta = sta + tas;
-  } else if (nsi > 1 && nss == 0) {
-    //GENERAR TPSS PERO CON CAMBIO DE FILA
+
+  }else if (nsi > 1 && nss == 0) {//GENERAR TPSS PERO CON CAMBIO DE FILA
+    nsi = nsi-1;
+    nss = nss+1;
+    const ta = getTA();
+    tpss = t + ta;
+    sta = sta + ta;
+
   }else{
     tpss = HIGH_VALUE;
-    console.log("salida S en HV en SALIDA S");
+    //console.log("salida S en HV en SALIDA S");
     itos = t;
   }
     
@@ -154,7 +160,7 @@ function sleep(milliseconds) {
 //correr la simulacion del modelo
 
 while (!finSimulacion) {
-  sleep(1);
+  //sleep(1);
   const evento = proxEvento();
   switch (evento) {
 
